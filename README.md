@@ -1,6 +1,6 @@
-# Work Day Scheduler Starter Code
+# Work Day Scheduler
 
-## A daily planner to help you organize your day to run smother
+## A daily planner to help you organize your day and make it run smoother
 
 - Create a schedule using a daily planner
 
