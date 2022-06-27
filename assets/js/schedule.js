@@ -30,27 +30,32 @@ $(".calendar").on("click", "p", function() {
        $(this).replaceWith(textInput);
      
        // auto focus new element
-       textInput.trigger("focus");
+       textInput.trigger("focus");     
+
      });
 
- // task text was clicked --- end
+      // task text was clicked --- end
+
+// Add Save Button Click
+
+// var element = document.getElementById("saveBtn");    
+//      element.addEventListener("click", saveCalendar);
+
+   
+
 
 //      save tasks to local storage
 var saveCalendar = function() {
-       localStorage.setItem("calendar", JSON.stringify(calendar));
-}
+    var element = document.getElementById("saveBtn");    
+       element.addEventListener("click", saveCalendar);
+       document.getElelementById("time").innerHTML
+       localStorage.setItem("calendar", JSON.stringify("calendar"));
+       
+};
 
 
-// load saved tasks
-// var loadCalendar = function() {
-//        calendar = JSON.parse(localStorage.getItem("calendar"));
-// // if nothing in local sotrage, creat new object to track all calendar arrays
-// of (!calendar) {
-//        calendar = {
-//               calendar: []
-//        };
-// }
+// load saved tasks from local storage
+var loadCalendar = function() {
+       calendar = JSON.parse(localStorage.getItem("calendar"));
 
-
-// };
-
+};
