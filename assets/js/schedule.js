@@ -33,13 +33,12 @@ $(".calendar").on("click", "p", function() {
        textInput.trigger("focus");
      });
 
+ // task text was clicked --- end
+
 //      save tasks to local storage
 var saveCalendar = function() {
-       localStorage.setItem("event", JSON.stringify(calendar))
+       localStorage.setItem("calendar", JSON.stringify(calendar));
 }
-// task text was clicked --- end
-
-
 
 
 // load saved tasks
@@ -48,8 +47,8 @@ var saveCalendar = function() {
 // // if nothing in local sotrage, creat new object to track all calendar arrays
 // of (!calendar) {
 //        calendar = {
-
-//        }
+//               calendar: []
+//        };
 // }
 
 
