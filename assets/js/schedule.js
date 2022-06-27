@@ -1,8 +1,8 @@
+var tasks = {};
 
 
+       // <script>
+       //  var dt = new Date();
+       //  document.getElementbyId('currentDay').innerHTML=dt;
+       //  </script>
 
-
-       <script>
-        var dt = new Date();
-        document.getElementbyId('currentDay').innerHTML=dt;
-        </script>
