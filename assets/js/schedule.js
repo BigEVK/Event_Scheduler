@@ -38,24 +38,27 @@ $(".calendar").on("click", "p", function() {
 
 // Add Save Button Click
 
-// var element = document.getElementById("saveBtn");    
-//      element.addEventListener("click", saveCalendar);
+
 
    
 
 
 //      save tasks to local storage
 var saveCalendar = function() {
-    var element = document.getElementById("saveBtn");    
-       element.addEventListener("click", saveCalendar);
-       document.getElelementById("time").innerHTML
-       localStorage.setItem("calendar", JSON.stringify("calendar"));
-       
+  console.log(this);
+        
+              
+      const calInfo = document.getElementById("time").value;
+            console.log(calInfo);
+       localStorage.setItem("calendar", JSON.stringify(calInfo));
+        console.log(saveCalendar);   
 };
 
 
 // load saved tasks from local storage
 var loadCalendar = function() {
-       calendar = JSON.parse(localStorage.getItem("calendar"));
+      var calendar = JSON.parse(localStorage.getItem("calendar"));
 
 };
+loadCalendar();
+document.querySelector(".saveBtn").addEventListener("click", saveCalendar);
