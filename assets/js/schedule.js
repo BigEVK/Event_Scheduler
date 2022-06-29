@@ -1,21 +1,25 @@
 var calendar = {};
+
+var calIdCounter = 0;
 // <script>
 //  var dt = new Date();
 //  document.getElementbyId('currentDay').innerHTML=dt;
 //  </script>
 
 // create celendar content
-// var createTask = function(calText) {
+// var createTaskEl = function(calText) {
 //        var calLi = $("<li>").addClass("calendar");
 
-//        var calP = $("<p>")       
-//        .text(calP)
+//       //  var calP = $("<p>")       
+//       //  .text(calP)
 
-// calLi.append(calSpan);
+// calLi.append("time");
 
-// $("#calendar" + calText).append(calLi);
+// $("calendar" + calText).append(calLi);
 
 // };
+
+var tasks = [];
 
 
 // task text was clicked --- start
@@ -38,27 +42,61 @@ $(".calendar").on("click", "p", function() {
 
 // Add Save Button Click
 
+// create an id for each new Calendar Task --- start
+
+var createTaskEl = function (taskDataObj) {
+  var nineAmEl = document.createElement("li");
+  nineAmEl.className = "nineAm";
+  nineAmEl.setAttribute("data-task-id", calIdCounter);
+
+  var tenAmEl = document.createElement("li");
+  tenAmEl.className = "tenAm";
+  tenAmEl.setAttribute("data-task-id", calIdCounter);
+
+  calIdCounter++;
+  console.log(taskDataObj);
+  console.log(taskDataObj.status);
+}
 
 
-   
+
+ // create an id for each new Calendar Task --- end
+
 
 
 //      save tasks to local storage
-var saveCalendar = function() {
+var saveCalendarNine = function() {
   console.log(this);
         
               
-      const calInfo = document.getElementById("time").value;
+      const calInfo = document.getElementById("timeNine").value;
             console.log(calInfo);
        localStorage.setItem("calendar", JSON.stringify(calInfo));
-        console.log(saveCalendar);   
+        console.log(saveCalendarNine);   
 };
-
+var saveCalendarTen = function() {
+  console.log(this);
+        
+              
+      const calInfo = document.getElementById("timeTen").value;
+            console.log(calInfo);
+       localStorage.setItem("calendar", JSON.stringify(calInfo));
+        console.log(saveCalendarTen);   
+};
 
 // load saved tasks from local storage
 var loadCalendar = function() {
-      var calendar = JSON.parse(localStorage.getItem("calendar"));
+      var calendar = localStorage.getItem("calendar");
+      if (!calendar) {
+        return false; 
+      }
+      console.log("Saved Calendar found!");
+      // calendar = JSON.parse(calendar);
+      // for (var i = 0; i < calendar.length; i++) {
+      //   createTaskEl(calendar[i]);
+      // }
 
 };
 loadCalendar();
-document.querySelector(".saveBtn").addEventListener("click", saveCalendar);
+document.querySelector(".saveBtn").addEventListener("click", saveCalendarNine);
+document.querySelector(".saveBtn").addEventListener("click", saveCalendarTen);
