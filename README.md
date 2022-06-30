@@ -8,5 +8,5 @@
 
 https://bigevk.github.io/Event_Scheduler/
 
- <img src=".assets/images/Calendar.png" width="400" >
+ <img src="./assets/images/Calendar.png" width="400" >
 
