@@ -23,20 +23,36 @@ var tasks = [];
 
 
 // task text was clicked --- start
-$(".calendar").on("click", "p", function() {
-       // get current text of p element
-       var text = $(this)
-         .text()
-         .trim();
-     
-       // replace p element with a new textarea
-       var textInput = $("<textarea>").addClass("form-control").val(text);
-       $(this).replaceWith(textInput);
-     
-       // auto focus new element
-       textInput.trigger("focus");     
+$(".saveBtn").on("click", function() {
+  var text = $(this).siblings("textarea").val();
+  var timeID = $(this).siblings("textarea").attr('id');
+  if(text) {
+    console.log(text);  
+    console.log(timeID);  
+    localStorage.setItem(timeID, text);
+  }
+  else {
+    console.log("Nothing in the text area")
+  }
+});
 
-     });
+let saveText = window.localStorage.getItem(timeID, text);
+console.log(saveText);
+
+  // console.log($(this).siblings("textarea"));
+       // get current text of p element
+    //    var text = $(this)
+    //      .text()
+    //      .trim();
+     
+    //    // replace p element with a new textarea
+    //    var textInput = $("<textarea>").addClass("form-control").val(text);
+    //    $(this).replaceWith(textInput);
+     
+    //    // auto focus new element
+    //    textInput.trigger("focus");     
+
+    //  });
 
       // task text was clicked --- end
 
@@ -84,30 +100,32 @@ var createTaskEl = function (taskDataObj) {
 //         console.log(saveCalendarTen);   
 // };
 
-document.querySelector(".saveBtn").addEventListener("click", function () {
+// document.querySelector(".saveBtn").addEventListener("click", function () {
   
- 
-    var timeValue = $(this).siblings(".timeInfo").val();
+//      var timeValue = $(this).siblings(".timeInfo").val();
+//      console.log(timeValue);
+    //  localStorage.setItem("calendar", JSON.stringify(calInfo));
 
-})
+// })
 
 
 
 
 
 // load saved tasks from local storage
-var loadCalendar = function() {
-      var calendar = localStorage.getItem("calendar");
-      if (!calendar) {
-        return false; 
-      }
-      console.log("Saved Calendar found!");
+// var loadCalendar = function() {
+//       var calendar = localStorage.getItem(timeID, text);
+//       console.log(calendar);
+//       if (!calendar) {
+//         return false; 
+//       }
+//       console.log("Saved Calendar found!");
       // calendar = JSON.parse(calendar);
       // for (var i = 0; i < calendar.length; i++) {
       //   createTaskEl(calendar[i]);
       // }
 
-};
+// };
 loadCalendar();
 // document.querySelector(".saveBtn").addEventListener("click", saveCalendarNine);
 // document.querySelector(".saveBtn").addEventListener("click", saveCalendarTen);
