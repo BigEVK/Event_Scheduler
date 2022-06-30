@@ -65,24 +65,35 @@ var createTaskEl = function (taskDataObj) {
 
 
 //      save tasks to local storage
-var saveCalendarNine = function() {
-  console.log(this);
+// var saveCalendarNine = function() {
+//   console.log(this);
         
               
-      const calInfo = document.getElementById("timeNine").value;
-            console.log(calInfo);
-       localStorage.setItem("calendar", JSON.stringify(calInfo));
-        console.log(saveCalendarNine);   
-};
-var saveCalendarTen = function() {
-  console.log(this);
+//       const calInfo = document.getElementById("timeNine").value;
+//             console.log(calInfo);
+//        localStorage.setItem("calendar", JSON.stringify(calInfo));
+//         console.log(saveCalendarNine);   
+// };
+// var saveCalendarTen = function() {
+//   console.log(this);
         
               
-      const calInfo = document.getElementById("timeTen").value;
-            console.log(calInfo);
-       localStorage.setItem("calendar", JSON.stringify(calInfo));
-        console.log(saveCalendarTen);   
-};
+//       const calInfo = document.getElementById("timeTen").value;
+//             console.log(calInfo);
+//        localStorage.setItem("calendar", JSON.stringify(calInfo));
+//         console.log(saveCalendarTen);   
+// };
+
+document.querySelector(".saveBtn").addEventListener("click", function () {
+  
+ 
+    var timeValue = $(this).siblings(".timeInfo").val();
+
+})
+
+
+
+
 
 // load saved tasks from local storage
 var loadCalendar = function() {
@@ -98,5 +109,5 @@ var loadCalendar = function() {
 
 };
 loadCalendar();
-document.querySelector(".saveBtn").addEventListener("click", saveCalendarNine);
-document.querySelector(".saveBtn").addEventListener("click", saveCalendarTen);
+// document.querySelector(".saveBtn").addEventListener("click", saveCalendarNine);
+// document.querySelector(".saveBtn").addEventListener("click", saveCalendarTen);
